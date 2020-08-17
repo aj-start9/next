@@ -26,6 +26,7 @@ Home.getInitialProps = async context => {
     return {
         shows: response.data,
         country: country
+        
     }
 
 }
