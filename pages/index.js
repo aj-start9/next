@@ -7,6 +7,7 @@ Home.getInitialProps = context => {
   // process.browser ?
   //   Router.replace('/[country]', `${country}`)
   //   : context.res.writeHead(302, { Location: `/${country}` }).end()
+  return {test:'dc'}
 }
 
 export default Home
