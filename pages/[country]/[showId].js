@@ -22,7 +22,7 @@ const ShowDetails = ({ show ,statusCode}) => {
 ShowDetails.getInitialProps = async ({ query }) => {
     try {
         const country = query.showId
-        const response = await axios.get(`http://api.tvmaze.com/shows/${country}?embed=cast`)
+        const response = await axios.get(`https://api.tvmaze.com/shows/${country}?embed=cast`)
         console.log(response.data)
         return {
             show: response.data
