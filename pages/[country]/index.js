@@ -16,7 +16,6 @@ const Home = ({ shows, country }) => {
     return (
         <div>
             <ul className="header">{renderShows()}</ul>
-
         </div>
     )
 }
@@ -24,10 +23,10 @@ const Home = ({ shows, country }) => {
 Home.getInitialProps = async context => {
     const { country } = cookies.get(context)
     const test = context.query.country || country || 'us'
-    const response = await axios.get(`http://api.tvmaze.com/schedule?country=${test}&date=2014-12-01`)
+    const response = await axios.get(`https://api.tvmaze.com/schedule?country=${test}&date=2014-12-01`)
     return {
         shows: response.data,
-        country: country
+        country: test
 
     }
 
