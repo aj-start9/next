@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Cast from './../../components/cast/index'
 import Error from 'next/error'
+import cookies from 'nookies'
 
 const ShowDetails = ({ show ,statusCode}) => {
     if (statusCode){

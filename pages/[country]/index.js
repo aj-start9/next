@@ -21,7 +21,7 @@ const Home = ({ shows,country }) => {
 }
 
 Home.getInitialProps = async context => {
-    const country = context.query.country || 'us'
+    const {country} = cookies.get(context)
     const response = await axios.get(`https://api.tvmaze.com/schedule?country=${country}&date=2014-12-01`)
     return {
         shows: response.data,
