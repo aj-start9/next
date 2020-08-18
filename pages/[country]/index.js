@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Thumbanil from './../../components/thumbnail/index'
-import Header from './../../components/header/index'
+import cookies from 'nookies'
 const Home = ({ shows,country }) => {
     const renderShows = () => {
         return shows.map((showItem, index) => {
