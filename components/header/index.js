@@ -1,13 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-
+import cookies from 'nookies'
 const Header = () => {
     const [country, setCountry] = useState('us')
     const router = useRouter()
     const handleChang = e => {
-        router.push(`/[country]`,`/${e.target.value}`)
+        router.push(`/[country]`, `/${e.target.value}`)
         setCountry(e.target.value)
     }
+
+    useEffect(() => {
+        cookies.set(null, 'country', country,{
+            path:'/',
+            maxAge:30*24*60*60
+        })
+    }, [country])
 
     return (<div className="header">
         <select onChange={handleChang}>

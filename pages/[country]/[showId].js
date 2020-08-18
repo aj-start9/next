@@ -1,31 +1,38 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import Cast from './../../components/cast/index'
-const ShowDetails = ({ show }) => {
-    // const { name, image, summary, _embedded } = show
-    // return (<div>
-    //     <h1>
-    //         {name}
-    //         <Cast cast={_embedded.cast} />
-    //     </h1>
+import Error from 'next/error'
 
-
-    // </div>
-    // )
-    return <div>
-        
+const ShowDetails = ({ show ,statusCode}) => {
+    if (statusCode){
+        return <Error statusCode={statusCode}/>
+    }
+    const { name, image, summary, _embedded } = show
+    return (<div>
+        <h1>
+            {name}
+            <Cast cast={_embedded.cast} />
+        </h1>
     </div>
+    )
 }
 
 
 
-// ShowDetails.getInitialProps = async ({ query }) => {
-//     const country = query.showId
-//     const response = await axios.get(`https://api.tvmaze.com/shows/${country}?embed=cast`)
-//     console.log(response.data)
-//     return {
-//         show: response.data
-//     }
-// }
+ShowDetails.getInitialProps = async ({ query }) => {
+    try {
+        const country = query.showId
+        const response = await axios.get(`http://api.tvmaze.com/shows/${country}?embed=cast`)
+        console.log(response.data)
+        return {
+            show: response.data
+        }
+    }
+    catch (error) {
+        return {
+            statusCode: error.response ? error.response.status : 500
+        }
+    }
+}
 
 export default ShowDetails
