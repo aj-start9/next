@@ -27,7 +27,7 @@ Home.getInitialProps = async context => {
     const response = await axios.get(`http://api.tvmaze.com/schedule?country=${test}&date=2014-12-01`)
     return {
         shows: response.data,
-        country: country
+        country: test
 
     }
 
