@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 import Thumbanil from './../../components/thumbnail/index'
-import cookies from 'nookies'
 const Home = ({ shows,country }) => {
     const renderShows = () => {
         return shows.map((showItem, index) => {
@@ -21,8 +20,9 @@ const Home = ({ shows,country }) => {
 }
 
 Home.getInitialProps = async context => {
-    const {country} = cookies.get(context)
-    const response = await axios.get(`https://api.tvmaze.com/schedule?country=${country}&date=2014-12-01`)
+    console.log(context)
+    const country = context.query.country || 'us'
+    const response = await axios.get(`http://api.tvmaze.com/schedule?country=${country}&date=2014-12-01`)
     return {
         shows: response.data,
         country: country
