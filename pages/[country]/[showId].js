@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Cast from './../../components/cast/index'
 import Error from 'next/error'
-import cookies from 'nookies'
+import {withAuthorization} from './../../utils/withAuthorization'
+
 
 const ShowDetails = ({ show ,statusCode}) => {
     if (statusCode){
@@ -36,4 +37,4 @@ ShowDetails.getInitialProps = async ({ query }) => {
     }
 }
 
-export default ShowDetails
+export default withAuthorization(ShowDetails)
