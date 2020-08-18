@@ -9,12 +9,12 @@ const Header = () => {
         setCountry(e.target.value)
     }
 
-    // useEffect(() => {
-    //     cookies.set(null, 'country', country,{
-    //         path:'/',
-    //         maxAge:30*24*60*60
-    //     })
-    // }, [country])
+    useEffect(() => {
+        cookies.set(null, 'country', country,{
+            path:'/',
+            maxAge:30*24*60*60
+        })
+    }, [country])
 
     return (<div className="header">
         <select onChange={handleChang}>
