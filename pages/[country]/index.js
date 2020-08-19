@@ -4,7 +4,7 @@ import Thumbanil from './../../components/thumbnail/index'
 import cookies from 'nookies'
 import { useSelector, useDispatch } from 'react-redux';
 import {connect} from 'react-redux'
-
+import {Test} from './../../store/action/actionType'
 const Home = ({ shows, country }) => {
     const dispatch = useDispatch();
     const test1 = useSelector(state => state);
@@ -32,7 +32,7 @@ const Home = ({ shows, country }) => {
 }
 
 Home.getInitialProps = async context => {
-    context.store.dispatch({ type: 'reducerA/setCounter', payload: 2000 })
+    context.store.dispatch(Test())
     const { country } = cookies.get(context)
     const test = context.query.country || country || 'us'
     const response = await axios.get(`https://api.tvmaze.com/schedule?country=${test}&date=2014-12-01`)
