@@ -4,8 +4,8 @@ import reducerB from './reducerB';
 
 
 const rootReducer = combineReducers({
-    reducerA: reducerA,
-    reducerB: reducerB
+    reducerA,
+    reducerB
 })
 
 export default rootReducer

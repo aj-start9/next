@@ -3,17 +3,17 @@ import axios from 'axios'
 import Thumbanil from './../../components/thumbnail/index'
 import cookies from 'nookies'
 import { useSelector, useDispatch } from 'react-redux';
-import { connect } from "react-redux";
-
+import { wrapper } from './../../store/index'
+import { connect } from 'react-redux'
 const Home = ({ shows, country }) => {
     const dispatch = useDispatch();
 
 
     const { counter } = useSelector(state => state.reducerA);
-    console.log('qwert',counter)
+    console.log('qwert', counter)
 
     const test = () => {
-        dispatch({ type: 'reducerA/setCounter', payload:1})
+        dispatch({ type: 'reducerA/setCounter', payload: 1 })
     }
 
     const renderShows = () => {
@@ -34,7 +34,7 @@ const Home = ({ shows, country }) => {
 }
 
 Home.getInitialProps = async context => {
-    console.log(context.store)
+    context.store.dispatch({ type: 'reducerA/setCounter', payload: 2000 })
     const { country } = cookies.get(context)
     const test = context.query.country || country || 'us'
     const response = await axios.get(`https://api.tvmaze.com/schedule?country=${test}&date=2014-12-01`)
@@ -43,5 +43,4 @@ Home.getInitialProps = async context => {
         country: test
     }
 }
-
-export default Home
+export default wrapper.withRedux(Home)
