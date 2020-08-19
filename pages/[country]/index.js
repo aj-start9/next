@@ -3,14 +3,12 @@ import axios from 'axios'
 import Thumbanil from './../../components/thumbnail/index'
 import cookies from 'nookies'
 import { useSelector, useDispatch } from 'react-redux';
-import { wrapper } from './../../store/index'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
+
 const Home = ({ shows, country }) => {
     const dispatch = useDispatch();
-
-
-    const { counter } = useSelector(state => state.reducerA);
-    console.log('qwert', counter)
+    const test1 = useSelector(state => state);
+    console.log('qwert', test1)
 
     const test = () => {
         dispatch({ type: 'reducerA/setCounter', payload: 1 })
@@ -43,4 +41,4 @@ Home.getInitialProps = async context => {
         country: test
     }
 }
-export default wrapper.withRedux(Home)
+export default connect((state) => state)(Home)
