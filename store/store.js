@@ -8,6 +8,7 @@ import reducerB from './reducer/reducerB';
 export const makeStore = (context) => createStore(rootReducer, applyMiddleware(thunk));
 
 
+
 export const wrapper = createWrapper(makeStore, { debug: true })
 
 
