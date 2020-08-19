@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const Header = () => {
     const router = useRouter()
-    const [country, setCountry] = useState(router.query.country)
+    const [country, setCountry] = useState(router.query.country || 'us')
     const handleChang = e => {
         router.push(`/[country]`, `/${e.target.value}`)
         setCountry(e.target.value)

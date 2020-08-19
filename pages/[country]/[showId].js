@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Cast from './../../components/cast/index'
 import Error from 'next/error'
-import {withAuthorization} from './../../utils/withAuthorization'
+import { withAuthorization } from './../../utils/withAuthorization'
 
 
-const ShowDetails = ({ show ,statusCode}) => {
-    if (statusCode){
-        return <Error statusCode={statusCode}/>
+const ShowDetails = ({ show, statusCode }) => {
+    if (statusCode) {
+        return <Error statusCode={statusCode} />
     }
     const { name, image, summary, _embedded } = show
     return (<div>
@@ -19,11 +19,9 @@ const ShowDetails = ({ show ,statusCode}) => {
     )
 }
 
-
-
 ShowDetails.getInitialProps = async ({ query }) => {
+    const country = query.showId
     try {
-        const country = query.showId
         const response = await axios.get(`https://api.tvmaze.com/shows/${country}?embed=cast`)
         console.log(response.data)
         return {
