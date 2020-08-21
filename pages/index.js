@@ -1,13 +1,16 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import Header from './../components/header/header'
-export default function Home() {
-  return (
-    <div >
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-    </div>
-  )
+import Router from 'next/router'
+import cookies from 'nookies'
+const Home = () => null
+
+Home.getInitialProps = context => {
+  const { country } = cookies.get(context)
+
+  const test = context.query.country || country || 'us'
+  process.browser ?
+    Router.replace('/[country]', `${test}`)
+    : context.res.writeHead(302, { Location: `/${test}` })
+
+  context.res.end()  
 }
+
+export default Home
