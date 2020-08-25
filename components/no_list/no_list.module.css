@@ -1,0 +1,26 @@
+.no_data_div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    text-align:center;
+  }
+
+  .bg_img{
+    max-width: 50%;
+  }
+
+  .no_data_title{
+    font-size: 3.6rem;
+    color: #404040;
+    font-weight: bold;
+    margin-top: 3rem;
+  }
+
+  .no_data_desc{
+    font-size: 2rem;
+    color: #404040;
+    font-weight: 400;
+    margin-top: 1rem;
+  }

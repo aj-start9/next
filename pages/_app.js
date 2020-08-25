@@ -1,13 +1,13 @@
 import React from 'react';
 import App from 'next/app';
 import { wrapper } from './../store/store';
-import Header from './../components/header/index'
-import {connect} from 'react-redux'
+import Header from './../components/header/header'
+import './../styles/globals.css'
 
-import { useSelector, useDispatch } from 'react-redux';
+
 class MyApp extends App {
   static getInitialProps = async ({ Component, ctx }) => {
-    ctx.store.dispatch({ type: 'reducerA/setCounter', payload: 2000 })
+    // ctx.store.dispatch({ type: 'reducerA/setCounter', payload: 2000 })
     
     return {
       pageProps: {

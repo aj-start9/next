@@ -1,0 +1,104 @@
+.sidebar{
+    flex: 0 0 20%;
+    background-color: #011F3B;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (min-width: 1025px) {
+
+    .sidebar{
+        height: 100vh;
+    }
+}
+
+.side_nav{
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+    color: #404040;
+    padding-left: 0;
+}
+
+.side_nav_item{
+    display: flex;
+    align-items: center;
+    padding: 2rem 0 2rem 20%;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.side_nav_item_active{
+    display: flex;
+    align-items: center;
+    padding: 2rem 0 2rem 20%;
+    margin-top: 1rem;
+    background-color: #B2C4FA;
+    cursor: pointer;
+}
+
+.sidebar_dashboard_logo{
+    width: 26px;
+    height: 26px;
+}
+
+.sidebar_invoice_logo{
+    width: 27px;
+    height: 27px;
+}
+
+.sidebar_user_logo{
+    width: 25px;
+    height: 25px;
+}
+
+.sidebar_setting_logo{
+    width: 26px;
+    height: 26px;
+}
+
+.sidebar_nav_link{
+    margin-left: 10%;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #DFE6F8;
+}
+
+.sidebar_nav_link_active{
+    margin-left: 10%;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #011F3B
+}
+
+@media only screen and (max-width: 1024px) {
+    .sidebar{
+        min-height: 7rem;
+        position: fixed;
+        bottom:0;
+        left:0;
+        width: 100%;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        z-index: 1;
+    }
+    .side_nav{
+        display: flex;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .side_nav_item,.side_nav_item_active{
+        width: 33.33%;
+        justify-content: center;
+        padding: 2rem 1% 2rem 1%;
+        margin-top: 0rem;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .sidebar_nav_link,.sidebar_nav_link_active{
+        display: none;
+    }
+
+}
