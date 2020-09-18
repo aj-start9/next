@@ -16,6 +16,11 @@ const authenticate = context => {
         return;
     }
 
+
+
+
+
+    
     //this for client side
     if (!token) {
         Router.push('/signin')
